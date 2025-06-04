@@ -1,15 +1,20 @@
-nums = Array[1, 2, 3, 4, 5]
-sum=[]
+class RunningSum
+  def initialize(array)
+    @array = array
+    @sums = []
+  end
 
-running_value=0
-nums.each do |i|
-  puts "nums values: #{i}"
-  running_value +=i
-  sum << running_value
+  def calculate
+    running_total = 0
+    @array.each do |num|
+      puts "nums values: #{num}"
+      running_total += num
+      @sums << running_total
+    end
+    puts "Running sum: #{@sums}"
+  end
 end
 
-sum.each do |i|
-  puts "running sum values: #{i}"
-end
-puts "Running sum: #{sum}"
-
+arr = [1, 2, 3, 4, 5]
+run_sum = RunningSum.new(arr)
+run_sum.calculate
